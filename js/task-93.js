@@ -3,21 +3,21 @@
 // removeItem(item) - получет товар и, если он есть, удаляет его из текущих
 
 class Storage {
-    constructor(array) {
-        this.array = array;
+    constructor(items) {
+        this.items = items;
     }
 
     getItems() {
-        console.log(this.array);
+        return this.items;
     }
 
     addItem(item) {
-        this.array.push(item);
+        return this.items.push(item);
     }
     removeItem(item) {
-        for (const newItem of this.array) {
+        for (const newItem of this.items) {
             if (item === newItem) {
-                this.array.splice(this.array.indexOf(newItem), 1);
+                return this.items.splice(this.items.indexOf(newItem), 1);
             }
         }
     }
@@ -30,10 +30,10 @@ const storage = new Storage([
 ]);
 
 const items = storage.getItems();
-// console.table(items); // [ "Нанитоиды", "Пролонгер", "Железные жупи", "Антигравитатор" ]
+console.table(items); // [ "Нанитоиды", "Пролонгер", "Железные жупи", "Антигравитатор" ]
 
 storage.addItem('Дроид');
-// console.table(storage.items); // [ "Нанитоиды", "Пролонгер", "Железные жупи", "Антигравитатор", "Дроид" ]
+console.table(storage.items); // [ "Нанитоиды", "Пролонгер", "Железные жупи", "Антигравитатор", "Дроид" ]
 
 storage.removeItem('Пролонгер');
-// console.table(storage.items); // [ "Нанитоиды", "Железные жупи", "Антигравитатор", "Дроид" ]
+console.table(storage.items); // [ "Нанитоиды", "Железные жупи", "Антигравитатор", "Дроид" ]
